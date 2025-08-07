@@ -3,3 +3,5 @@
 # @#~\^><,"'$&._=;:|/)(][*?!
 # These are matched to the following:
 # ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+# NOTE: IT WILL MOST LIKELY GET YOU A CYPHERED MESSAGE.
