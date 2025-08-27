@@ -1,7 +1,8 @@
 ﻿# Here are the accepted characters for the Secondary Alphabet:
 
-# @#~\^><,"'$&._=;:|/)(][*?!
+# @#~\\^><,"'$&._=;:|/)(][*?!
 # These are matched to the following:
 # ABCDEFGHIJKLMNOPQRSTUVWXYZ
 
 # NOTE: IT WILL MOST LIKELY GET YOU A CYPHERED MESSAGE.
+
