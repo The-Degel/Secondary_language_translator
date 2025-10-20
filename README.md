@@ -4,5 +4,6 @@
 # These are matched to the following:
 # ABCDEFGHIJKLMNOPQRSTUVWXYZ
 
-# NOTE: IT WILL MOST LIKELY GET YOU A CYPHERED MESSAGE.
+# It will find the type of cipher used for the encryption, and then will decrypt it.
+
 
