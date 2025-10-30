@@ -107,7 +107,7 @@ def website(ciphered_string, key):
     # Runs the service (the Chrome "window").
     service = Service(ChromeDriverManager().install())
     options = webdriver.ChromeOptions()
-    # options.add_argument("--headless=new")
+    options.add_argument("--headless=new")
     driver = webdriver.Chrome(service=service, options=options)
 
     # Finds the cipher used.
@@ -135,3 +135,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
