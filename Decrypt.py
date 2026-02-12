@@ -1,4 +1,5 @@
 from Translator import Cipher
+from Atbash import AtbashCipher
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
@@ -13,11 +14,25 @@ def translator(cipher_text) -> str:
     :return: The encrypted text.
     """
 
-    # Translates the text
+    # Translates the text.
     cipher_instance = Cipher(cipher_text)
     encrypted_text = cipher_instance.translate()
 
     return encrypted_text
+
+
+def atbash_translator(atbash_input) -> str:
+    """
+    Translates atbash ciphers.
+    :param atbash_input: The atbash encoded string.
+    :return: The deciphered string.
+    """
+
+    # Translates the text.
+    atbash_instance = AtbashCipher(atbash_input)
+    solved_atbash = atbash_instance.atbash_translate()
+
+    return solved_atbash
 
 
 def cipher_finder(driver, encrypted_text, key) -> str:
@@ -32,7 +47,7 @@ def cipher_finder(driver, encrypted_text, key) -> str:
     # Opens the website.
     driver.get("https://www.dcode.fr/cipher-identifier&v5")
 
-    # Waits for the page to load
+    # Waits for the page to load.
     wait(1)
 
     # Finds the textbox and prints the encrypted text into it.
@@ -78,14 +93,14 @@ def decrypter(driver, encrypted_text, key, cipher_choice) -> str:
     # Finds the textbox and prints the encrypted text into it.
     driver.find_element(By.NAME, "ciphertext").send_keys(encrypted_text)
 
-    # Enters the key if it exists, else prints a message.
+    # Enters the key if it exists, otherwise prints a message.
     try:
         driver.find_element(By.NAME, "key").send_keys(key)
 
     except selenium.common.exceptions.NoSuchElementException:
         pass
 
-    # Press the decrypt button
+    # Press the decrypt button.
     driver.find_element(By.CSS_SELECTOR, "button[data-post='ciphertext,alphabet,hebraic_alphabet']").click()
 
     # Wait for the results to load.
@@ -128,10 +143,7 @@ def main():
 
     # --- WRITE AN OPTION FOR ATBASH WITH THE SECONDARY LANGUAGE + ADD IT AS A 1ST OPTION --- #
 
-    # --- WRITE AN OPTION FOR VIGENERE FOR THE START/IN CASE IT APPEARS AGAIN + ADD IT AS A 2ND OPTION --- #
-
-    # --- USE THE CURRENT INPUTS AND ADD THE CIPHER IDENTIFIER AS A 3RD OPTION --- #
-
+    # --- USE THE CURRENT INPUTS AND ADD THE CIPHER IDENTIFIER AS A 2ND OPTION --- #
 
 if __name__ == "__main__":
     main()
