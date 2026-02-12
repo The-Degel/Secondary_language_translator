@@ -132,18 +132,37 @@ def website(ciphered_string, key):
     print(f'\n{decrypter(driver, encrypted_text, key, cipher_choice)}')
 
 
+def program(program_input: str):
+    """ Receives a string input and chooses a decryption based on the user's input. """
+
+    # Atbash cipher
+    if program_input == 1:
+        atbash_cipher = input("Enter your string please: ")
+
+    # Tries to find the used cipher, in order to solve it.
+    elif program_input == 2:
+        ciphered_string = input("Enter your string please: ")
+        key = input("\nEnter the key used for this decryption.\n"
+                    "If there is none, please press Enter: ")
+
+        website(ciphered_string, key)
+
+    # No decipher usage.
+    else:
+        print("You absolute buffoon")
+
+
 def main():
     """ The function activates the translation function. """
 
-    ciphered_string = input("Enter your string please: ")
-    key = input("\nEnter the key used for this decryption.\n"
-                "If there is none, please press Enter: ")
+    # User input.
+    program_input = input("Welcome to the decryption program!\n"
+                          "Please choose one of the following options:\n"
+                          "1. Atbash cipher\n"
+                          "2. Cipher finder\n")
 
-    website(ciphered_string, key)
+    program(program_input)
 
-    # --- WRITE AN OPTION FOR ATBASH WITH THE SECONDARY LANGUAGE + ADD IT AS A 1ST OPTION --- #
-
-    # --- USE THE CURRENT INPUTS AND ADD THE CIPHER IDENTIFIER AS A 2ND OPTION --- #
 
 if __name__ == "__main__":
     main()
