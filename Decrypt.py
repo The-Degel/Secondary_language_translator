@@ -32,7 +32,7 @@ def atbash_translator(atbash_input) -> str:
     atbash_instance = AtbashCipher(atbash_input)
     solved_atbash = atbash_instance.atbash_translate()
 
-    return solved_atbash
+    print(solved_atbash)
 
 
 def cipher_finder(driver, encrypted_text, key) -> str:
@@ -132,16 +132,23 @@ def website(ciphered_string, key):
     print(f'\n{decrypter(driver, encrypted_text, key, cipher_choice)}')
 
 
-def program(program_input: str):
+def program(program_input: int):
     """ Receives a string input and chooses a decryption based on the user's input. """
 
     # Atbash cipher
     if program_input == 1:
-        atbash_cipher = input("Enter your string please: ")
+        ciphered_string = input("\nEnter your string please: ")
+
+        # Translate the secondary language.
+        atbash_string = translator(ciphered_string)
+
+        # Decrypt the atbash cipher.
+        atbash_translator(atbash_string)
+
 
     # Tries to find the used cipher, in order to solve it.
     elif program_input == 2:
-        ciphered_string = input("Enter your string please: ")
+        ciphered_string = input("\nEnter your string please: ")
         key = input("\nEnter the key used for this decryption.\n"
                     "If there is none, please press Enter: ")
 
@@ -156,10 +163,11 @@ def main():
     """ The function activates the translation function. """
 
     # User input.
-    program_input = input("Welcome to the decryption program!\n"
+    program_input = int(input("Welcome to the decryption program!\n"
                           "Please choose one of the following options:\n"
                           "1. Atbash cipher\n"
-                          "2. Cipher finder\n")
+                          "2. Cipher finder\n"
+                          "Please choose a number: "))
 
     program(program_input)
 
